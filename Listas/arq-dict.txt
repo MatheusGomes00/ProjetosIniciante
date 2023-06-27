@@ -1,0 +1,28 @@
+{'teste': 'teste02'}
+{'teste': 'teste03'}
+{'Lambda': 'Permite que voc� crie fun��es pequenas e simples de forma mais concisa, sem precisar definir uma fun��o tradicional usando a palavra-chave def.'}
+{'Lambda': 'Permite que você crie funções pequenas e simples de forma mais concisa, sem precisar definir uma função tradicional usando a palavra-chave def.'}
+{'UTF-8': 'UTF-8 (Unicode Transformation Format - 8 bits) é uma forma de codificação de caracteres amplamente utilizada para representar texto em computadores e sistemas de comunicação. É uma das várias codificações disponíveis no padrão Unicode.'}
+{'teste': 'teste05 âÂãÃõé'}
+'teste': 'teste06'
+teste': 'teste07
+teste': 'teste...
+teste': 'teste...2
+"teste": "teste...03"
+"teste": "teste...04"
+teste": "teste...05
+{'teste': 'teste...06'}
+{'teste': 'teste...07'}
+{'teste': 'teste...08'}
+{'teste': 'teste...09'}
+{'teste': 'teste...10'}
+{"teste": "teste...11"}
+{"teste": "teste...12"}
+{"teste": "teste...13"}
+teste: teste...13
+teste: teste...14
+teste: teste...15
+teste: teste...16
+teste: teste...17
+{teste: teste...18}
+{"teste": "teste...19"}

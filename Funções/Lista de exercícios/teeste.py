@@ -1,0 +1,5 @@
+texto = input('Entre com a palavra, frase ou número: ').split()
+print(texto)
+troca = texto.copy()
+troca.reverse()
+print(troca)
