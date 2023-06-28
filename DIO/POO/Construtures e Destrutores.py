@@ -1,5 +1,5 @@
 '''
-    underline-2x '__' alguma coisa underline-2x '__' é um 
+    underline-2x '__' palavra-chave underline-2x '__' é um 
     método especial;
 
     __init__ É um construtor, usado para inicializar valores;
