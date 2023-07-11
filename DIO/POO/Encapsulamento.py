@@ -4,7 +4,10 @@ atributos de determinada classe. Python usa convenção no nome do recurso
 para determinar um atributo como público ou privado. Os atributos
 públicos (escrito normal) podem ser acessados fora da classe,
 os privados (usa-se _ antes do nome) somente na classe.
-Para acessar um atributo de fora da classe, temos de criar um método para tal.
+Para acessar um atributo de fora da classe, temos de criar um método para
+tal devido às questões de segurança. A exemplo, um sistema de caixa 
+eletrônico bancário, onde teria as funções de consultar saldo, sacar, 
+depositar... 
 """
 
 
