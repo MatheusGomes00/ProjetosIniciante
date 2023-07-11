@@ -1,0 +1,56 @@
+Token de acesso pessoal
+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
+
+Git Bash: É uma emulação do Bash (um shell Unix-like) para Windows. Ele fornece uma interface de linha de comando semelhante ao ambiente Unix, permitindo que você execute comandos Git e outros comandos Unix. O Git Bash é baseado no MinGW, que é um ambiente de desenvolvimento para Windows que inclui um conjunto de ferramentas GNU (como o Bash) e bibliotecas.
+
+Git CMD: É uma interface de linha de comando nativa do Windows para o Git. Ele utiliza o prompt de comando padrão do Windows (CMD) para executar comandos Git. O Git CMD oferece uma experiência mais familiar para usuários do Windows, mas pode ter algumas limitações em relação às ferramentas e recursos disponíveis no Git Bash.
+
+branch - ramificação do seu projeto, multiplas linhas cronológicas. 
+ex0.: existe uma linha principal e a partir dela geramos ramificações que não afetam a linha principal, assim quando finalizado o que originou a ramificação podemos simplesmente integrarar ela na linha principal.
+ex1.: em um projeto foi definido a linha central de desenvolvimento, o núcleo do sistema, a partir dali, pode ser criada uma ramificação para adicionar um botão, estilizar uma página, em cada ramificação pode atuar uma equipe, back-end, front-end, design, entre diversas outras. 
+ex2.: as ramificações estão em uma segunda camada e vieram da camada principal. Nesta segunda camada, serão realizadas alterações, correções, acrescentar funções, dentre outros. Finalizado o que foi desenvolvido na ramificação, esse bloco de trabalho é enviado para a camada principal, ou somente esquecer ela.
+
+commit - salvar a versão do código no repositório local. ou salvar a versão do código na branch.
+
+merge - junção da branch com a ordem cronologica principal ou outra branch. de modo que a própria ferramenta adiciona no código fonte principal, considerando todas as atualizações já realizadas nela.
+
+git init - inicia um novo repositório, starta uma nova linha cronológica, uma nova branch, workspace.
+
+git add exemplo.txt - adiciona o arquivo exemplo.txt na área de espera, deixa o arquivo pronto para ser commitado. deixa o arquivo como aguardando.
+
+git add . - adiciona todos os arquivos criados, alterado, manipulados, na área de espera.
+
+git status - mostra se tem alguma change to be commited. pode aparecer new file: exemplo.txt ou nothing to commit, working tree clean ou modified: readme.md
+
+git commit -m "primeiro commit" - realiza o commit colocando o comentário ou descrição do commit.
+
+git remote add origin https://github.com/MatheusGomes00/ProjetosIniciante.git
+expl0:  adiciona o repositório local no repositório remoto
+expl: 	git: é sempre que vamos rodar um comando
+	remote: referente a conexão remota que estamos criando
+	add: para adicionar o local no remoto
+	origin: é um padrão adotado, mas seria o nome da origem...
+	htt**: o endereço do repositório remoto
+
+git push origin master - realiza o push para o diretório remoto
+
+git checkout -b "exemploNewFunction" - gera uma nova branch chamada "exemploNewFunction"
+
+git checkout master - retorna para a branch master ou a principal ou a primeira criada. alteramos somente o que está no lugar da 'master' para o nome da branch que queremos acessar.
+
+git merge exemploNewFunction - realiza o merge da branch descrita no lugar do exemploNewFunction com a branch principal.
+
+git clone link - realiza o clone de determinado repositório remoto, onde colamos o link depois de git clone no git bash para clonar para o nosso repositório local.
+
+git pull - atualiza o clone.
+
+no github -
+fork - quando estamos no perfil de outra pessoa e queremos copiar determinado repositório para o nosso próprio, utilizamos o botão fork.
+
+pull-requests - enviar uma solicitação de atualização ou alteração ou contribuição  em  um código alheio. No fork realizado para o nosos repositório, realizamos o commit e depois no repositório original, fazemos a pull-request.
+
+
+
+
+
+
