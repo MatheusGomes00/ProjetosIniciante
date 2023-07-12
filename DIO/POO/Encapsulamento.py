@@ -3,11 +3,14 @@ O conceito de encapsulamento envolve a proteção do acesso aos métodos e
 atributos de determinada classe. Python usa convenção no nome do recurso
 para determinar um atributo como público ou privado. Os atributos
 públicos (escrito normal) podem ser acessados fora da classe,
-os privados (usa-se _ antes do nome) somente na classe.
+os privados (usa-se _ antes do nome) podem ser acessados somente na classe.
 Para acessar um atributo de fora da classe, temos de criar um método para
 tal devido às questões de segurança. A exemplo, um sistema de caixa 
 eletrônico bancário, onde teria as funções de consultar saldo, sacar, 
-depositar... teste teste
+depositar... um usuário não pode ter acesso direto ao saldo pois pode 
+manipular ele, então para isso criamos um método que só tem a função de
+acessar o saldo, dessa forma acessamos o saldo não diretamente, mas por 
+um método que acessa o atributo/característica da classe desejada.
 """
 
 
