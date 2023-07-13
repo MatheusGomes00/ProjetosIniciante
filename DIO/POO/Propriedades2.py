@@ -3,6 +3,12 @@ class Pessoa:
         self.nome = nome
         self._ano_nascimento = ano_nascimento
 
+    # @property
+    # def nome(self):
+    #     return self.nome
+    # não é necessário declarar um property para acessar 'nome'
+    # pois a variável 'nome' é pública
+
     @property
     def idade(self):
         _ano_atual = 2022

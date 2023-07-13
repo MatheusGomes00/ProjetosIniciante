@@ -1,21 +1,23 @@
 """
-Propriedades gerenciadas ou propriedades computadas, pelo que eu entendi,
-vai tratar um método como um atributo, para isso usamos o decorador,
-escrito por um @ e o seu nome.
+Propriedades gerenciadas ou propriedades computadas, trata
+um método como um atributo, para isso usamos o decorador,
+escrito por um @ e o seu nome. Transforma o método em uma 
+propriedade. Recebe uma ação para montar o valor de uma 
+variável.
 """
 class Teste:
     def __init__(self, x=None):
         self._x = x
 
-    @property
+    @property  # decorador, é executado antes da função/método
     def x(self):
         return self._x or 0
 
-    @x.setter
+    @x.setter  # modifica o valor, setar um novo valor;
     def x(self, value):
         self._x += value
 
-    @x.deleter
+    @x.deleter  # deleta
     def x(self):
         self._x = 0
 

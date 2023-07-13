@@ -103,7 +103,13 @@ class Conta:
     def sacar(self, valor):
         pass
 
-
+Propriedades
+Com o 'property()' do Python, você pode criar atributos
+gerenciados/computados em suas classes. Podemos usar atributos
+computados, também conhecidos como propriedades, quando 
+precisamos modificar sua implementação interna sem alterar a 
+API pública da classe.
+Ex.: 
 
 
 
