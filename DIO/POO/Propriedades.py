@@ -1,30 +1,49 @@
 """
-Propriedades gerenciadas ou propriedades computadas, trata
-um método como um atributo, para isso usamos o decorador,
-escrito por um @ e o seu nome. Transforma o método em uma 
-propriedade. Recebe uma ação para montar o valor de uma 
-variável.
+Em Python, o conceito de propriedades computadas ou 
+gerenciaveis representa uma forma de encapsulamento que permite 
+controlar o acesso e a modificação de atributos de uma classe.
+Em Python 3, você pode definir uma propriedade em uma classe 
+usando os decoradores @property, @<atributo>.setter e 
+@<atributo>.deleter. 
+Dcoradores é basicamente uma função embutida que modifica o 
+funcionamento de outra função.
+
+@property: Este decorador é usado para transformar um método 
+em um atributo de leitura, permitindo o acesso ao valor do 
+atributo, mas sem permitir modificá-lo diretamente. 
+Ele é colocado acima do método que deseja expor como uma 
+propriedade.
+
+@<atributo>.setter: Este decorador é usado para transformar 
+um método em um atributo de escrita, permitindo a modificação 
+do valor do atributo. Ele é colocado acima de um método que 
+será usado para definir o valor do atributo.
+
+@<atributo>.deleter: Este decorador é usado para transformar 
+um método em um atributo de exclusão, permitindo que você 
+exclua o atributo. Ele é colocado acima de um método que será 
+usado para excluir o valor do atributo.
 """
 class Teste:
-    def __init__(self, x=None):
-        self._x = x
+    def __init__(self, valor=None):
+        self._numeral = valor
 
     @property  # decorador, é executado antes da função/método
-    def x(self):
-        return self._x or 0
+    def propValor(self):
+        return self._numeral or 0
 
-    @x.setter  # modifica o valor, setar um novo valor;
-    def x(self, value):
-        self._x += value
+    @propValor.setter  # modifica o valor, setar um novo valor;
+    def modifica_valor(self, value):
+        self._numeral += value
 
-    @x.deleter  # deleta
-    def x(self):
-        self._x = 0
+    @propValor.deleter  # deleta
+    def deleta_valor(self):
+        self._numeral = -1
 
 
 teste = Teste(10)
-print(teste.x)
-del teste.x
-print(teste.x)
-teste.x = 10
-print(teste.x)
+print(teste.propValor)
+del teste.deleta_valor
+print(teste.propValor)
+teste.modifica_valor = 10
+print(teste.propValor)
