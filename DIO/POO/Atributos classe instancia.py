@@ -1,7 +1,8 @@
 """
 Variáveis de classe são declaradas abaixo da classe, compartilhada entre
-os objetos relacionados a classe. Variáveis de instância são declaradas nas instâncias
-da classe, compartilhada apenas pelos atributos referente a instância específica.
+os objetos relacionados a classe, seria a variável global. Variáveis de 
+instância são declaradas nas instâncias da classe, compartilhada apenas 
+pelos atributos referente a instância específica.
 """
 
 

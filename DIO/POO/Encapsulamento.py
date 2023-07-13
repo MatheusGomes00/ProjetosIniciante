@@ -1,6 +1,6 @@
 """
-O conceito de encapsulamento envolve a proteção do acesso aos métodos e
-atributos de determinada classe. Python usa convenção no nome do recurso
+O conceito de encapsulamento envolve a proteção do acesso aos atributos e
+caractecristicas de determinada classe. Python usa convenção no nome do recurso
 para determinar um atributo como público ou privado. Os atributos
 públicos (escrito normal) podem ser acessados fora da classe,
 os privados (usa-se _ antes do nome) podem ser acessados somente na classe.
