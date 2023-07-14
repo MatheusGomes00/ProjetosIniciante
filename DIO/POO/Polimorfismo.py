@@ -7,7 +7,7 @@ um objeto vai possuir diversas atribuições, neste exemplo usamos o
 polimorfismo no método 'plano_voo' onde a função trata qualquer objeto
 com o mesmo funcionamento
 Um exemplo de polimorfismo na prórpia linguagem python é o método 'len'
-que retorna diferentes valores conforme sua verificação...
+que retorna diferentes valores conforme sua verificação... 
 """
 
 
