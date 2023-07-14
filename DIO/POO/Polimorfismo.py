@@ -19,7 +19,7 @@ class Pardal(Passaro):
 
 class Avestruz:
     def voar(self):
-        print('Avestruz não voa')
+        print("Avestruz não voa")
 
 
 def plano_voo(obj):

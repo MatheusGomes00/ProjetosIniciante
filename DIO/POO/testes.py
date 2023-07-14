@@ -1,3 +1,5 @@
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 # nova_lista = [x for x in range(11) if x % 2 == 0]
 # print(nova_lista)
 # texto = 'teste1 teste2 teste3 teste4 teste5 teste6'
