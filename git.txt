@@ -1,3 +1,12 @@
+Title SSH key: MatheusGomes notebook
+gh auth login -> autenticar com host GitHub
+gh auth logout
+gh auth refresh
+gh auth setup-git -> configurar git para github cli
+gh auth status -> view authentication status
+gh auth token -> print the auth token gh is configured to use
+
+
 Token de acesso pessoal
 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
 
@@ -15,6 +24,8 @@ The key's randomart image is:
 |       +o*O=*+o. |
 |       .+=*B+..  |
 +----[SHA256]-----+
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCcDzzGqjfiJMBp5VvyvkUURRDRAIHP6aUP0AmUnRucp41ulIJdoh1kuvdw6vpToiFUC+aCMyabpUOJ0p6wmul+4IkSAKXwdM5kWnx0d6waIaW92v0zv5qj49iIT4c92hMHVFQmPNeRxSapwLTq8BnFuut5amxzFwAvG0AmK3wRQy9n9lxjA+KhhgFyd3b8s61s8JtK7ULryptP2cleP6aQxdKHys33HZCBDD3uI7bioIFV15+JOycQUDTVlj0S29iwVCZOdF0Yhq0yNgACJOHFBWD5l4+wSqQcW+t1w9qSfnzmPRI2vUp0g30B9DMciJPrfeWNCyKtHq61pkCF2BV/lD1TLlEL5y1WA8xPeHeeuHdu6/vMOc9X2fIQ9IHMpZAfjKOkTZq3hVJ5VM1FG61OjJi/CWb9c+ZnD1S5vk1K2it+Fx+tHwfOp6DYBdqMbY+K5KKGf24/1pN7nw+mBb9lpDpfXgKlNOMV8Lf9I8uMrcL6Ck/kJ2OzqH1K8AAM4kVoOiEZO9PN/J3UAV9HSGpK/V0GpWc7ArJdDk+g82VHIUDlT4t3fIYIKr2CPkEEHteiax5LhthG48X/XiXTF+K1vUYXUYMIlowCOQP99VeIFBLCal/PGQQD6ReasLN0uQmQYfxtCeENjRryaO+CZmzFmNrLAKK+rro/q8PfWvZZqw== matheus.recin@outlook.com
 
 
 Git Bash: É uma emulação do Bash (um shell Unix-like) para Windows. Ele fornece uma interface de linha de comando semelhante ao ambiente Unix, permitindo que você execute comandos Git e outros comandos Unix. O Git Bash é baseado no MinGW, que é um ambiente de desenvolvimento para Windows que inclui um conjunto de ferramentas GNU (como o Bash) e bibliotecas.
