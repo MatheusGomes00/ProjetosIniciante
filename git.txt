@@ -1,6 +1,22 @@
 Token de acesso pessoal
 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
 
+The key fingerprint is:
+SHA256:bX52C4npE0pfa6LPZMQMTLpM7Yt8cjt+LfyanceIHT0 matheus.recin@outlook.com
+The key's randomart image is:
++---[RSA 4096]----+
+|        .        |
+|       =         |
+|      o +        |
+|     o o =       |
+|      o S *  .   |
+|     . ..=.oo.E  |
+|      +.++**==.. |
+|       +o*O=*+o. |
+|       .+=*B+..  |
++----[SHA256]-----+
+
+
 Git Bash: É uma emulação do Bash (um shell Unix-like) para Windows. Ele fornece uma interface de linha de comando semelhante ao ambiente Unix, permitindo que você execute comandos Git e outros comandos Unix. O Git Bash é baseado no MinGW, que é um ambiente de desenvolvimento para Windows que inclui um conjunto de ferramentas GNU (como o Bash) e bibliotecas.
 
 Git CMD: É uma interface de linha de comando nativa do Windows para o Git. Ele utiliza o prompt de comando padrão do Windows (CMD) para executar comandos Git. O Git CMD oferece uma experiência mais familiar para usuários do Windows, mas pode ter algumas limitações em relação às ferramentas e recursos disponíveis no Git Bash.
