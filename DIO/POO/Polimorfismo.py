@@ -13,6 +13,8 @@ função, que no caso é o voar. Todo objeto que for passado para a função
 polimórfico, que vai receber diferentes comportamentos e atribuições. 
 Um exemplo de polimorfismo na prórpia linguagem python é o método 'len'
 que retorna diferentes valores conforme sua verificação ... 
+
+
 """
 
 
