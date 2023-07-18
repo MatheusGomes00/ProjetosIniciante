@@ -35,7 +35,7 @@ Git CMD: É uma interface de linha de comando nativa do Windows para o Git. Ele 
 branch - ramificação do seu projeto, multiplas linhas cronológicas. 
 ex0.: existe uma linha principal e a partir dela geramos ramificações que não afetam a linha principal, assim quando finalizado o que originou a ramificação podemos simplesmente integrarar ela na linha principal.
 ex1.: em um projeto foi definido a linha central de desenvolvimento, o núcleo do sistema, a partir dali, pode ser criada uma ramificação para adicionar um botão, estilizar uma página, em cada ramificação pode atuar uma equipe, back-end, front-end, design, entre diversas outras. 
-ex2.: as ramificações estão em uma segunda camada e vieram da camada principal. Nesta segunda camada, serão realizadas alterações, correções, acrescentar funções, dentre outros. Finalizado o que foi desenvolvido na ramificação, esse bloco de trabalho é enviado para a camada principal, ou somente esquecer ela.
+ex2.: as ramificações estão em uma segunda camada e extendem da camada principal. Nesta segunda camada, serão realizadas alterações, correções, acrescentar funções, dentre outros. Finalizado o que foi desenvolvido na ramificação, esse bloco de trabalho é enviado para a camada principal, ou somente esquecer ela.
 
 commit - salvar a versão do código no repositório local. ou salvar a versão do código na branch.
 

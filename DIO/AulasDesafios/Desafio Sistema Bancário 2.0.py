@@ -59,3 +59,5 @@ while True:  # inicia um loop infinito
         break  # encerra o loop infinito
     else:
         print('Opção inválida, digite novamente.')
+
+
