@@ -25,6 +25,8 @@ torna abstrato quando decorado com @abstractmethod.
 """
 
 class ControleRemoto(ABC):
+# a classe extende o módulo/biblioteca ABC, obrigando as 
+# instâncias da classe receber o decorador @abstractmethod
     @abstractmethod
     def ligar(self):
         pass
