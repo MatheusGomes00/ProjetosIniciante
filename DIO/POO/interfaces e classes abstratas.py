@@ -1,9 +1,28 @@
 from abc import ABC, abstractmethod
 
-""" Interface define O QUE uma classe deve fazer e não COMO (todo padrão de execução) """
-"""Métodos abstratos não possuem corpo, ele obriga todas as classes filhas a receber os métodos da mãe"""
-"""Toda classe filha deve implementar os métodos da classe mãe"""
+""" 
+Interface define O QUE uma classe deve fazer e não COMO 
+(todo padrão de execução).
+O conceito de interface é definir um contrato, onde são 
+declarados os métodos (o que deve ser feito) e suas 
+respectivas assinaturas. Em Python utilizamos classes 
+abstratas para criar contratos. Classes abstratas não 
+podem ser instanciadas.
 
+A interface serve para compor um comportamento na minha classe.
+
+Métodos abstratos não possuem corpo, ele obriga todas as 
+classes filhas a receber os métodos da mãe. Toda classe filha 
+deve implementar os métodos da classe mãe
+
+Por padrão, o Python não fornece classes abstratas. Existe um
+módulo que fornece a base para definir as classes abstratas, e
+o nome do módulo é 'ABC'. O 'ABC' funciona decorando métodos da
+classe base como abstratos e, em seguida, registrando classes
+concretas como implementações da base abstrata. Um método se 
+torna abstrato quando decorado com @abstractmethod.
+
+"""
 
 class ControleRemoto(ABC):
     @abstractmethod
