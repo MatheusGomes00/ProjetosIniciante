@@ -1,16 +1,202 @@
-# Sistema bancário
-# import textwrap
-# '''...[D]\tDepositar...'''
-# input(textwrap.ddent(menu))
-# faz a tabulação da string sempre colocando o \t
-# Função que retorna o menu
+from abc import ABC, abstractmethod
+import datetime, textwrap
+
+class Conta:
+    def __init__(self, numero, cliente):
+        self.saldo = 0
+        self.numero = numero
+        self.agencia = "0001"
+        self.cliente = Cliente
+        self.historico = Historico()
+
+    @property
+    def saldo(self):
+        return self._saldo
+    
+    @property
+    def numero(self):
+        return self._numero
+    
+    @property
+    def agencia(self):
+        return self._agencia
+    
+    @property
+    def cliente(self):
+        return self.cliente
+    
+    @property
+    def historico(self):
+        return self.historico
+    
+    @classmethod
+    def nova_conta(cliente, numero):
+        return Conta(numero, cliente)
+
+    def sacar(self, valor):
+        saldo = self.saldo
+        excedeu_saldo = valor > saldo
+
+        if excedeu_saldo:
+            print("\n*** Operação falhou! Você não tem saldo \
+                  suficiente. ***")
+            
+        elif valor > 0:
+            self._saldo -= valor
+            print("\n*** Saque realizado com sucesso! ***")
+            return True
+        
+        else:
+            print("\n*** Operação falhou! O valor informado \
+                  é inválido. ***")
+            
+        return False
+
+    def depositar(self, valor):
+        if valor > 0:
+            self._saldo += valor
+            print("\n*** Depósito realizado com sucesso! \
+                  ***")
+        else:
+            print("\n*** Operação falhou! O valor informado \
+                  é invalido. ***")
+            return False
+        
+        return True
+
+
+class ContaCorrente(Conta):
+    def __init__(self, numero, cliente, limite=500, 
+                 limite_saques=3):
+        super().__init__(numero, cliente)
+        self.limite = limite
+        self.limite_saque = limite_saques
+
+    def sacar(self, valor):
+        numero_saques = len(
+            [transacao for transacao in self.historico.
+             transacoes if transacao["tipo"] == Saque.
+             __name__]
+        )
+
+        excedeu_limite = valor > self.limite
+        excedeu_saques = numero_saques >= self.limite_saques
+
+        if excedeu_limite:
+            print("\n*** Operação falhou! O valor do saque \
+                  excede o limite. ***")
+            
+        elif excedeu_saques:
+            print("\*** Operação falhou! Número máximo \
+                  de saques excedido. ***")
+            
+        else:
+            return super().sacar(valor)
+        
+        return False
+    
+    def __str__(self):
+        return f"""\
+            Agência:\t{self.agencia}
+            C/C:\t\t{self.numero}
+            Titular:\t{self.cliente.nome}
+        """
+    
+
+class Historico:
+    def __init__(self):
+        self._transacoes = []
+
+    @property
+    def transacoes(self):
+        return self._transacoes
+    
+    def adicionar_transacao(self, transacao):
+        self._transacoes.append(
+            {
+                "tipo": transacao.__class__.__name__,
+                "valor": transacao.valor,
+                "data": datetime.now().strftime
+                ("%d-%m-%Y %H:%M:%s")
+            }
+        )
+
+
+class Transacao(ABC):    
+    @property
+    @abstractmethod
+    def valor(self):
+        pass
+
+    @abstractmethod
+    def registar(self, conta):
+        self.conta = Conta
+        pass
+
+
+class Deposito(Transacao):
+    def __init__(self, valor):
+        self._valor = valor
+
+    @property
+    def valor(self):
+        return self._valor
+
+    def registar(self, conta):
+        sucesso_transacao = conta.depositar(self.valor)
+
+        if sucesso_transacao:
+            conta.historico.adicionar_transacao(self)
+
+
+class Saque(Transacao):
+    def __init__(self, valor):
+        self._valor = valor
+    
+    @property
+    def valor(self):
+        return self._valor
+    
+    def registar(self, conta):
+        sucesso_transacao = conta.sacar(self.valor)
+        
+        if sucesso_transacao:
+            conta.historico.adicionar_transacao(self)
+
+
+class Cliente:
+    def __init__(self, endereco):
+        self.endereco = endereco
+        self.contas = []
+        
+    def realizar_transacao(self, conta, transacao):
+        transacao.registrar(conta)
+
+    def adicionar_conta(self, conta):
+        self.contas.append(conta)
+
+
+class PessoaFisica(Cliente):
+    def __init__(self, cpf, nome, data_nascimento, endereco):
+        super().__init__(endereco)
+        self.cpf = cpf
+        self.nome = nome
+        self.data_nascimento = data_nascimento
+
+
+
 def menu():
-    return '''
-===============MENU====================
-[D]-Depositar           [S]-Sacar               [E]-Extrato
-[U]-Novo Usuário      [CC]-Criar Conta     [LS]-Listar Contas
-[Q]-Sair
-'''
+    menu = '''\n
+    =======MENU=======
+    [D]\t-Depositar
+    [S]\t-Sacar
+    [E]\t-Extrato
+    [NC]\t-Nova conta
+    [LC]\t-Listar contas
+    [NU]\t-Novo usuário
+    [Q]\t-Sair
+    '''
+    return input.upper((textwrap.dedent(menu)))
 
 
 # Função depositar
@@ -102,39 +288,37 @@ def listar_contas(contas):
 
 
 def main():
-    limite_saque = int(2)
-    saldo = float(0.0)  # inicia a variável saldo como zerada
-    extrato = ''  # inicia a variável extrato sem texto algum
-    limite = float(500.0)  # define o limite diário de saque em 500 reais
-    n_saques = int(0)  # inicia variável de contagem do número de saques zerada
-    users = []
+    clientes = []
     contas = []
-    agencia = '0001'
-    while True:  # inicia um loop infinito
-        operation = input(menu()).upper()  # entrada de dados da operação desejada no menu
-        if operation == 'D':  # condição para operação de depósito
-            deposito = float(input('\nDigite o valor do depósito: '))  # recebe o valor do depósito
-            extrato, saldo = depositar(deposito, extrato, saldo)  # chama a função depositar atribuindo o retorno nas variáveis extrato e saldo
-        elif operation == 'S':  # condição para operação de saque
-            saque = float(input('\nDigite o valor do saque: '))
-            saldo, extrato, n_saques = sacar(
-                saque1=saque, saldo1=saldo, n_saques1=n_saques, extrato1=extrato, limite1=limite, lim_saque1=limite_saque,
-            )  # chama a função sacar
-        elif operation == 'E':  # condição para operação de saque
-            print(extract(saldo, extrato2=extrato,))  # chama as variáveis que armazena o saque e o extrato
-        elif operation == 'U':
-            criar_user(users)
-        elif operation == 'CC':
+    while True:  
+        option = menu
+        if option == 'D':  
+            depositar(clientes)
+
+        elif option == 'S':  
+            sacar(clientes)
+
+        elif option == 'E': 
+            exibir_extrato(clientes)
+        
+        elif option == 'NU':
+            criar_cliente(clientes)
+
+        elif option == 'NC':
             numero_conta = len(contas) + 1
-            conta = criar_conta(numero_conta, agencia, users)
-            if conta:
-                contas.append(conta)
-        elif operation == 'LS':
+            criar_conta(numero_conta, clientes, contas)
+
+        elif option == 'LC':
             listar_contas(contas)
-        elif operation == 'Q':  # condição para saída do 'loop' infinito
-            break  # encerra o loop infinito
+
+        elif option == 'Q': 
+            break  
+        
         else:
             print('\n\nOpção inválida, digite novamente.')
 
 
 main()
+
+
+
