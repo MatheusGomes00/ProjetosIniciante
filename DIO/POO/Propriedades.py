@@ -5,7 +5,7 @@ controlar o acesso e a modificação de atributos de uma classe.
 Em Python 3, você pode definir uma propriedade em uma classe 
 usando os decoradores @property, @<atributo>.setter e 
 @<atributo>.deleter. 
-Decoradores é basicamente uma função embutida que modifica o 
+Decoradores são basicamente uma função embutida que modifica o 
 funcionamento de outra função.
 
 @property: Este decorador é usado para transformar um método 

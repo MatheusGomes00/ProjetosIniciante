@@ -1,13 +1,15 @@
 from abc import ABC, abstractmethod
-import datetime, textwrap
+import datetime, textwrap, sys
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 class Conta:
     def __init__(self, numero, cliente):
-        self.saldo = 0
-        self.numero = numero
-        self.agencia = "0001"
-        self.cliente = Cliente
-        self.historico = Historico()
+        self._saldo = 0
+        self._numero = numero
+        self._agencia = "0001"
+        self._cliente = cliente
+        self._historico = Historico()
 
     @property
     def saldo(self):
@@ -23,18 +25,18 @@ class Conta:
     
     @property
     def cliente(self):
-        return self.cliente
+        return self._cliente
     
     @property
     def historico(self):
-        return self.historico
+        return self._historico
     
     @classmethod
-    def nova_conta(cliente, numero):
-        return Conta(numero, cliente)
+    def nova_conta(cls, cliente, numero):
+        return cls(numero, cliente)
 
     def sacar(self, valor):
-        saldo = self.saldo
+        saldo = self._saldo
         excedeu_saldo = valor > saldo
 
         if excedeu_saldo:
@@ -97,9 +99,9 @@ class ContaCorrente(Conta):
     
     def __str__(self):
         return f"""\
-            Agência:\t{self.agencia}
-            C/C:\t\t{self.numero}
-            Titular:\t{self.cliente.nome}
+            Agência:\t{self._agencia}
+            C/C:\t\t{self._numero}
+            Titular:\t{self._cliente.nome}
         """
     
 
@@ -177,12 +179,12 @@ class Cliente:
 
 
 class PessoaFisica(Cliente):
-    def __init__(self, cpf, nome, data_nascimento, endereco):
+    def __init__(self, nome, data_nascimento, cpf, endereco):
         super().__init__(endereco)
-        self.cpf = cpf
         self.nome = nome
         self.data_nascimento = data_nascimento
-
+        self.cpf = cpf
+        
 
 def menu():
     menu = '''\n
@@ -194,17 +196,17 @@ def menu():
     [LC]\t-Listar contas
     [NU]\t-Novo usuário
     [Q]\t-Sair
-    '''
-    return input.upper((textwrap.dedent(menu)))
+    ==>'''
+    return input(textwrap.dedent(menu)).upper()
 
 
 def recuperar_conta_cliente(cliente):
-    if not cliente.conta:
+    if not cliente.contas:
         print("\n*** Cliente não possui conta! ***")
         return
     
     # FIXME: não é permitido cliente escolher a conta
-    return cliente.conta[0]
+    return cliente.contas[0]  # é retornado somente a primeira conta
 
 
 def depositar(clientes):
@@ -213,7 +215,8 @@ def depositar(clientes):
     
     if not cliente:
         print("\n*** Cliente não encontrado! ***")
-
+        return
+    
     valor = float(input("Informe o valor do depósito: "))
     transacao = Deposito(valor)
 
@@ -230,8 +233,9 @@ def sacar(clientes):
 
     if not cliente:
         print("\n*** Cliente não encontrado! ***")
+        return
 
-    valor = float(print("Informe o valor do saque: "))
+    valor = float(input("Informe o valor do saque: "))
     transacao = Saque(valor)
 
     conta = recuperar_conta_cliente(cliente)
@@ -291,6 +295,7 @@ def criar_cliente(clientes):
     clientes.append(cliente)
 
     print("\n*** Cliente criado com sucesso! ***")
+    
 
 def filtrar_clientes(cpf, clientes):
     clientes_filtrados = [cliente for cliente in clientes if
@@ -302,14 +307,14 @@ def criar_conta(numero_conta, clientes, contas):
     cpf = input("\nInforme o CPF do cliente: ")
     cliente = filtrar_clientes(cpf, clientes)
 
-    if not clientes:
+    if not cliente:
         print("\n*** Cliente não encontrado, fluxo de \
               criação de conta encerrado! ***")
         
     conta = ContaCorrente.nova_conta(cliente=cliente,
                                      numero=numero_conta)
     contas.append(conta)
-    cliente.conta.append(conta)
+    cliente.contas.append(conta)
 
     print("\n*** Conta criada com sucesso! ***")
 
@@ -324,7 +329,7 @@ def main():
     clientes = []
     contas = []
     while True:  
-        option = menu
+        option = menu()
         if option == 'D':  
             depositar(clientes)
 
@@ -352,6 +357,3 @@ def main():
 
 
 main()
-
-
-
