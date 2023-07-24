@@ -131,7 +131,7 @@ class Transacao(ABC):
         pass
 
     @abstractmethod
-    def registar(self, conta):
+    def registrar(self, conta):
         self.conta = Conta
         pass
 
@@ -144,7 +144,7 @@ class Deposito(Transacao):
     def valor(self):
         return self._valor
 
-    def registar(self, conta):
+    def registrar(self, conta):
         sucesso_transacao = conta.depositar(self.valor)
 
         if sucesso_transacao:
@@ -159,7 +159,7 @@ class Saque(Transacao):
     def valor(self):
         return self._valor
     
-    def registar(self, conta):
+    def registrar(self, conta):
         sucesso_transacao = conta.sacar(self.valor)
         
         if sucesso_transacao:
@@ -189,13 +189,13 @@ class PessoaFisica(Cliente):
 def menu():
     menu = '''\n
     =======MENU=======
-    [D]\t-Depositar
-    [S]\t-Sacar
-    [E]\t-Extrato
-    [NC]\t-Nova conta
-    [LC]\t-Listar contas
-    [NU]\t-Novo usuário
-    [Q]\t-Sair
+    [D]\tDepositar
+    [S]\tSacar
+    [E]\tExtrato
+    [NC]\tNova conta
+    [LC]\tListar contas
+    [NU]\tNovo usuário
+    [Q]\tSair
     ==>'''
     return input(textwrap.dedent(menu)).upper()
 
@@ -320,9 +320,12 @@ def criar_conta(numero_conta, clientes, contas):
 
 
 def listar_contas(contas):
-    for conta in contas:
-        print("=" * 80)
-        print(textwrap.dedent(str(conta)))
+    if len(contas) == 0:
+        print("*** Não existem contas criadas! ***")
+    else:
+        for conta in contas:
+            print("=" * 80)
+            print(textwrap.dedent(str(conta)))
 
 
 def main():
