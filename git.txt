@@ -65,7 +65,7 @@ git checkout -b "exemploNewFunction" - gera uma nova branch chamada "exemploNewF
 
 git checkout master - retorna para a branch master ou a principal ou a primeira criada. alteramos somente o que está no lugar da 'master' para o nome da branch que queremos acessar.
 
-git merge exemploNewFunction - realiza o merge da branch descrita no lugar do exemploNewFunction com a branch principal.
+git merge exemploNewFunction - realiza o merge da branch descrita no lugar do exemploNewFunction com a branch principal. primeiro voltamos para a principal e depois usamos o comando para juntar as duas branch.
 
 git clone link - realiza o clone de determinado repositório remoto, onde colamos o link depois de git clone no git bash para clonar para o nosso repositório local.
 
