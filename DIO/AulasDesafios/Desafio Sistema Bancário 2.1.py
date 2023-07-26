@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-import datetime, textwrap, sys
+import textwrap, sys
+from datetime import datetime
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -40,8 +41,7 @@ class Conta:
         excedeu_saldo = valor > saldo
 
         if excedeu_saldo:
-            print("\n*** Operação falhou! Você não tem saldo \
-                  suficiente. ***")
+            print("\n*** Operação falhou! Você não tem saldo suficiente. ***")
             
         elif valor > 0:
             self._saldo -= valor
@@ -49,19 +49,16 @@ class Conta:
             return True
         
         else:
-            print("\n*** Operação falhou! O valor informado \
-                  é inválido. ***")
+            print("\n*** Operação falhou! O valor informado é inválido. ***")
             
         return False
 
     def depositar(self, valor):
         if valor > 0:
             self._saldo += valor
-            print("\n*** Depósito realizado com sucesso! \
-                  ***")
+            print("\n*** Depósito realizado com sucesso! ***")
         else:
-            print("\n*** Operação falhou! O valor informado \
-                  é invalido. ***")
+            print("\n*** Operação falhou! O valor informado é invalido. ***")
             return False
         
         return True
@@ -72,7 +69,7 @@ class ContaCorrente(Conta):
                  limite_saques=3):
         super().__init__(numero, cliente)
         self.limite = limite
-        self.limite_saque = limite_saques
+        self.limite_saques = limite_saques
 
     def sacar(self, valor):
         numero_saques = len(
@@ -85,12 +82,10 @@ class ContaCorrente(Conta):
         excedeu_saques = numero_saques >= self.limite_saques
 
         if excedeu_limite:
-            print("\n*** Operação falhou! O valor do saque \
-                  excede o limite. ***")
+            print("\n*** Operação falhou! O valor do saque excede o limite. ***")
             
         elif excedeu_saques:
-            print("\*** Operação falhou! Número máximo \
-                  de saques excedido. ***")
+            print("\*** Operação falhou! Número máximo de saques excedido. ***")
             
         else:
             return super().sacar(valor)
@@ -100,7 +95,7 @@ class ContaCorrente(Conta):
     def __str__(self):
         return f"""\
             Agência:\t{self._agencia}
-            C/C:\t\t{self._numero}
+            C/C:\t{self._numero}
             Titular:\t{self._cliente.nome}
         """
     
@@ -118,8 +113,8 @@ class Historico:
             {
                 "tipo": transacao.__class__.__name__,
                 "valor": transacao.valor,
-                "data": datetime.now().strftime
-                ("%d-%m-%Y %H:%M:%s")
+                "data": datetime.now(tz=None).strftime
+                ("%d-%m-%Y %H:%M:%S")
             }
         )
 
@@ -188,7 +183,7 @@ class PessoaFisica(Cliente):
 
 def menu():
     menu = '''\n
-    =======MENU=======
+    =========MENU=========
     [D]\tDepositar
     [S]\tSacar
     [E]\tExtrato
@@ -196,7 +191,8 @@ def menu():
     [LC]\tListar contas
     [NU]\tNovo usuário
     [Q]\tSair
-    ==>'''
+    ======================
+    ==> '''
     return input(textwrap.dedent(menu)).upper()
 
 
@@ -253,7 +249,7 @@ def exibir_extrato(clientes):
         print("\n*** Cliente não encontrado! ***")
         return
 
-    conta = recuperar_conta_cliente(clientes)
+    conta = recuperar_conta_cliente(cliente)
     if not conta:
         return
     
@@ -266,11 +262,11 @@ def exibir_extrato(clientes):
         extrato = "\n*** Não foram realizadas movimentações. ***"
     else:
         for transacao in transacoes:
-            extrato += f"\n{transacao['tipo']}:\n\tR$ \
-            {transacao['valor']:.2f}"
+            extrato += f"\n{transacao['tipo']}:\nR$ \
+            {transacao['valor']:.2f}\n{transacao['data']}"
 
     print(extrato)
-    print(f"\nSaldo:\n\tR$ {conta.saldo:.2f}")
+    print(f"\nSaldo:\nR$ {conta.saldo:.2f}")
     print("=============================")
             
 
@@ -283,10 +279,8 @@ def criar_cliente(clientes):
         return
     
     nome = input("Informe o nome completo: ")
-    data_nascimento = input("Informe a data de nascimento \
-                            (dd-mm-aaaa): ")
-    endereco = input("Informe o endereço (logradouro, nro \
-                     - bairro - cidade/sigla estado): ")
+    data_nascimento = input("Informe a data de nasciment (dd-mm-aaaa): ")
+    endereco = input("Informe o endereço (logradouro, nro - bairro - cidade/sigla estado): ")
 
     cliente = PessoaFisica(nome=nome, 
                            data_nascimento=data_nascimento,
@@ -308,9 +302,9 @@ def criar_conta(numero_conta, clientes, contas):
     cliente = filtrar_clientes(cpf, clientes)
 
     if not cliente:
-        print("\n*** Cliente não encontrado, fluxo de \
-              criação de conta encerrado! ***")
-        
+        print("\n*** Cliente não encontrado, fluxo de criação de conta encerrado! ***")
+        return
+
     conta = ContaCorrente.nova_conta(cliente=cliente,
                                      numero=numero_conta)
     contas.append(conta)
