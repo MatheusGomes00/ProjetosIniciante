@@ -1,0 +1,30 @@
+Desafio sistema bancário
+
+...
+
+Fase - Orientação a Objetos
+
+Desafio proposto: 
+    Sistema de banco, com apenas conta corrente, permitindo cadastrar 
+    multiplos clientes e multiplas contas, vinculadas a estes clientes.
+    Detalhes de funcionamento:
+        > Número da agência padrão: "0001";
+        > Número conta crescente;
+        > Cada novo usuário pode ter mais de uma conta;
+        > Os métodos da conta não podem ser acessados diretamente;
+        > Cada conta pode fazer as operações de saque, depósito e ver extrato;
+        > Restrição de apenas 3 saques por conta;
+        > Restrição de limite de R$500,00 por saque;
+        > Depósito ilimitado;
+        > Toda operação de saque e deposíto gera um histórico de transação;
+        > Operação de mostrar extrato precisa gerar a data e hora da 
+        transação;
+    Criar as operações fornecidas em um menu: depositar, sacar, extrato, 
+    novo usuário nova conta, listar contas, sair. 
+    Descrição operações:
+        > Novo Usuário:
+            Cadastra um novo usuário, registrando dados fornecidos pelo usuário, 
+            nome, cpf, data de nascimento e endereço.
+    
+    
+    Descrição das classes:
