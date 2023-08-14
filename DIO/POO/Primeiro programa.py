@@ -46,7 +46,7 @@ m1.buzinar()  # chamada de método/comportamento da classe moto
 m1.correr()
 m1.parar()
 # conseguimos acessar os atributos do objeto
-print(m1.cor, m1.ano, m1.valor, m1.modelo)  # forma não convencional de acessar as instancias do objeto
+print(m1.cor, m2.ano, m1.valor, m1.modelo)  # forma não convencional de acessar as instancias do objeto
 Moto.buzinar(m1)
 print(m2) # forma convencional de acessar as instancias do objeto, após declarado __str__ 
 # para saber como foi instanciado determinado objeto, o que tem dentro da classe x no objeto y

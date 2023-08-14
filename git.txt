@@ -35,11 +35,21 @@ Git CMD: É uma interface de linha de comando nativa do Windows para o Git. Ele 
 branch - ramificação do seu projeto, multiplas linhas cronológicas. 
 ex0.: existe uma linha principal e a partir dela geramos ramificações que não afetam a linha principal, assim quando finalizado o que originou a ramificação podemos simplesmente integrarar ela na linha principal.
 ex1.: em um projeto foi definido a linha central de desenvolvimento, o núcleo do sistema, a partir dali, pode ser criada uma ramificação para adicionar um botão, estilizar uma página, em cada ramificação pode atuar uma equipe, back-end, front-end, design, entre diversas outras. 
-ex2.: as ramificações estão em uma segunda camada e extendem da camada principal. Nesta segunda camada, serão realizadas alterações, correções, acrescentar funções, dentre outros. Finalizado o que foi desenvolvido na ramificação, esse bloco de trabalho é enviado para a camada principal, ou somente esquecer ela.
+ex2.: as ramificações estão em uma segunda camada e vieram da camada principal. Nesta segunda camada, serão realizadas alterações, correções, acrescentar funções, dentre outros. Finalizado o que foi desenvolvido na ramificação, esse bloco de trabalho é enviado para a camada principal, ou somente esquecer ela.
 
 commit - salvar a versão do código no repositório local. ou salvar a versão do código na branch.
 
 merge - junção da branch com a ordem cronologica principal ou outra branch. de modo que a própria ferramenta adiciona no código fonte principal, considerando todas as atualizações já realizadas nela.
+
+***********************************************************************************************************************************************************************
+Primeiro criamos o repositório remoto no github, vai ser gerado um link do repositório;
+Segundo abrimos repositório local que queremos iniciar com o git bash;
+Terceiro, iniciamos o novo repositório local (git init)
+... depois vinculamos o repositório local no remoto (git remoto add origin https://github.com/MatheusGomes00/nome-novo-repositorio-remoto.git)
+... ao realizar um git push, caso retorne erro (remote: Not Found...), pedemos verificar as URLs remotas ao associados ao repositório local (git remote -v). ->
+... -> Se o URL estiver incorreto ou desatualizado, você pode corrigi-lo usando o comando git remote set-url: git remote set-url origin https://github.com/seu-usuario/seu-repositorio.git
+
+***********************************************************************************************************************************************************************
 
 git init - inicia um novo repositório, starta uma nova linha cronológica, uma nova branch, workspace.
 
@@ -51,7 +61,7 @@ git status - mostra se tem alguma change to be commited. pode aparecer new file:
 
 git commit -m "primeiro commit" - realiza o commit colocando o comentário ou descrição do commit.
 
-git remote add origin https://github.com/MatheusGomes00/ProjetosIniciante.git
+git remote add origin https://github.com/MatheusGomes00/NomeDoNovoRepositorio.git
 expl0:  adiciona o repositório local no repositório remoto
 expl: 	git: é sempre que vamos rodar um comando
 	remote: referente a conexão remota que estamos criando
