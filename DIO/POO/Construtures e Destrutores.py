@@ -1,6 +1,6 @@
 '''
-    underline-2x '__' palavra-chave-reservada underline-2x '__' é um 
-    método especial;
+    underline-2x '__' palavra-chave-reservada underline-2x '__'
+    é um método especial;
 
     __init__ É um construtor, usado para inicializar valores;
     Inicia um objeto na classe... 
