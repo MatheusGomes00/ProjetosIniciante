@@ -1,0 +1,5 @@
+Programaão funcional é um paradigma que trata a computação como uma avaliação de funções matemáticas.
+Tais funções podem ser aplicadas em sequências de dados (geralmente lista). São exemplos de linguagens
+funcionais: LISP, Scheme e Haskell (esta última influenciou o projeto do Python de forma marcante). 
+As operações básicas do paradigma funcional são implementadas no python pelas funções builtin 'map()',
+'filter()', 'reduce()' e 'zip()'.
