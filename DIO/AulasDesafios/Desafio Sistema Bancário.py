@@ -21,7 +21,7 @@ def depositar():
     else:  # se o valor não for maior que zero retorna erro
         retorno = f'Valor de depósito incompatível!\nReinicie a operação.'
     return retorno
-
+  
 
 # Função sacar
 def sacar():

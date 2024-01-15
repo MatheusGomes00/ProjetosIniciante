@@ -1,0 +1,64 @@
+Pymongo é um framework desenvolvido pela equipe que desenvolveu o MongoDB, que serve para integração com sistema de dados não relacional, no caso o MongoDB.
+
+
+pip install pymongo
+pip install --upgrade pymongo
+
+Pymongo permite interação com documentos;
+
+
+MongoDB:
+banco de dados NoSQL
+estrutura orientada a documentos
+flexível (NoSQL) x estruturado e rígido (SQL) - é possível usar o modelo relacional e não relacional
+schema (representação da estrutura) opcional - é possível definir schemas, dependendo da necessidade e abordagem do banco de dados
+
+www.monogodb.com/docs/
+
+Documentos:
+Em MongoDB, um 'documento' é a unidade básica de armazenamento e organização de dados. Os documentos são representados em um formato chamado BSON (Binary JSON), que é uma extensão do formato JSON e é otimizado para o armazenamento e recuperação eficiente de dados no MongoDB.
+	Formato flexível: pode conter campos com diferentes tipos dedados;
+	Campos-Chave: cada documento consiste em campos e valores. Os campos são nomes que identificam os dados no documento, os valores são os dados reais associados a esses campos;
+	Hierarquia Aninhada: subdocumentos aninhados, permitindo a criação de estruturas de dados complexas e hierarquicas;
+	ID único: cada documento possui um ID auto setado ou predefinido pelo desenvolvedor, para localizar na coleção;
+	Coleções: os documentos são organizados em coleções, que são semelhantes a tabelas em bancos relacionais;
+	Operações de Leitura/Gravação: Os documentos podem ser inseridos, lidos, atualizados e excluídos em um uma coleção por meio de operações como 'insert', 'find', 'update' e 'remove'.	
+
+
+Coleção: conjunto de documentos...
+
+
+Namespaces:
+No MongoDB, um "namespace" é um termo que se refere à forma como os dados são organizados e identificados no banco de dados. Ele é composto por duas partes principais:
+	Banco de dados: Isso é semelhante a um contêiner de alto nível que mantém várias coleções. Um banco de dados no MongoDB é onde você armazena informações relacionadas.
+	Coleções: Uma coleção é uma estrutura semelhante a uma tabela em um banco de dados relacional. Ela é um conjunto de documentos BSON (Binary JSON) que podem ter campos e valores diferentes, mas geralmente estão relacionados ao mesmo tipo de informação.
+O namespace em MongoDB é uma concentração do nome do banco de dados e o nome da coleção, separados por um ponto. Por exemplo, se você tiver um banco dedados chamado 'mydb' e uma coleção chamada 'users', o namespace seria 'mydb.users'.
+O namespace é usado para identificar exclusivamente uma coleção dentro de um banco de dados. Cada coleção em um banco de dados MongoDB tem seu próprio namespace exclusivo.
+
+
+MongoDB x SQL (imagem)
+
+
+
+
+
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+
+uri = "mongodb+srv://wordshinigam:<password>@cluster0.n1r2g50.mongodb.net/?retryWrites=true&w=majority"
+
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
+
+
+
+
+
+

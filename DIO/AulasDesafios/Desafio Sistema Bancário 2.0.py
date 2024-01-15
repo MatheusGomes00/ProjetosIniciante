@@ -7,7 +7,7 @@ MENU
 [S]-Sacar
 [E]-Extrato
 [Q]-Sair
-'''
+'''  
 
 
 # Função depositar

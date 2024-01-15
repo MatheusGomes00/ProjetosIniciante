@@ -52,7 +52,7 @@ class Conta:
             print("\n*** Operação falhou! O valor informado é inválido. ***")
             
         return False
-
+   
     def depositar(self, valor):
         if valor > 0:
             self._saldo += valor
