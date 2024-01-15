@@ -1,2 +1,1 @@
-Hi there, this project try to teach how to use git.
-This is one change.
+Hi there, this repository presents knowledge trails involving the Python language.
