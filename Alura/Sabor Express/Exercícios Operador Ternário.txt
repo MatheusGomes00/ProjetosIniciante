@@ -1,0 +1,39 @@
+1. **Exercício 1:** Dado duas variáveis `a` e `b`, escreva uma linha de código que imprime 
+   "a é maior que b" se `a` for maior que `b`, caso contrário imprime "b é maior que a".
+    
+    a = 4
+    b = 9
+    print(f"{a} é maior que {b}" if a > b else b, " é maior que ", a)
+
+
+2. **Exercício 2:** Dado uma lista de números, escreva uma linha de código que imprime 
+   "Lista vazia" se a lista estiver vazia, caso contrário imprime "Lista não está vazia".
+
+    lista = [1, 2, 3, 4, 5]
+    print("lista vazia" if not lista else "lista não está vazia")
+
+
+3. **Exercício 3:** Dado uma variável `x`, escreva uma linha de código que imprime 
+   "x é par" se `x` for par, caso contrário imprime "x é ímpar".
+
+    x = 3
+    print(f"{x} é par " if x%2==0 else f"{x} é impar")
+
+
+4. **Exercício 4:** Dado uma variável `y`, escreva uma linha de código que imprime 
+   "y é positivo" se `y` for positivo, caso contrário imprime "y é negativo".
+
+    y = -8.33
+    print(f"{y} é positivo" if y > 0 else f"{y} é negativo")
+
+
+5. **Exercício 5:** Dado uma variável `z`, escreva uma linha de código que imprime 
+   "z é zero" se `z` for zero, "z é positivo" se `z` for positivo, caso contrário imprime "z é negativo".
+
+    z = -1
+    print(f"{z} é zero" if z == 0 else (f"{z} é positivo" if z > 0 else f"{z} é negativo"))
+
+
+Exemplo com listcomprehension
+lista = [1, 2, 3, 4, 5]
+nova_lista = [x if x % 2 == 0 else x * 2 for x in lista]  # Cria uma nova lista onde os números ímpares são dobrados
